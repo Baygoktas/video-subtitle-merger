@@ -15,7 +15,7 @@ async def handle_force_subscribe(bot, message):
         if user.status == "kicked":
             await bot.send_message(
                 chat_id=message.from_user.id,
-                text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/mmagneto)ile.",
+                text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/trbotlistesi).",
                 parse_mode="markdown",
                 disable_web_page_preview=True,
                 reply_to_message_id=message.message_id,
@@ -24,11 +24,11 @@ async def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         await bot.send_message(
             chat_id=message.from_user.id,
-            text="**Lütfen beni kullanabilmek için Kanalıma Katıl!**\n\nAşırı Yükleme Nedeniyle Beni Yalnızca Kanal Aboneleri Kullanabilir!",
+            text="**Lütfen Beni Kullanabilmek İçin Kanalıma Katıl!**\n\nAşırı Yükleme Nedeniyle Beni Yalnızca Kanal Aboneleri Kullanabilir!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 Katıl işte 🤖", url=invite_link.invite_link)
+                        InlineKeyboardButton("🤖 Katıl 🤖", url=invite_link.invite_link)
                     ],
                     [
                         InlineKeyboardButton("🔄 Yenile 🔄", callback_data="refreshmeh")
@@ -42,7 +42,7 @@ async def handle_force_subscribe(bot, message):
     except Exception:
         await bot.send_message(
             chat_id=message.from_user.id,
-            text="Bir Şeyler Ters Gitti. İletişime geçin [Destek](https://t.me/mmagneto) ile.",
+            text="Bir Şeyler Ters Gitti. İletişime geçin [Destek](https://t.me/trbotlistesidestek) ile.",
             parse_mode="markdown",
             disable_web_page_preview=True,
             reply_to_message_id=message.message_id,
