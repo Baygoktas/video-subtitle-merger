@@ -30,7 +30,7 @@ async def softmux(bot, message, cb=False):
         await bot.send_message(chat_id, text)
         return
 
-    text = 'Dosyanıza soft altyazı uygulanıyor. Birkaç saniye içinde yapılır!'
+    text = 'Dosyanıza Soft Altyazı Uygulanıyor. Birkaç Saniye İçinde Yapılır!'
     sent_msg = await bot.send_message(chat_id, text)
 
     softmux_filename = await softmux_vid(og_vid_filename, og_sub_filename, sent_msg)
@@ -53,11 +53,11 @@ async def softmux(bot, message, cb=False):
                 document = os.path.join(Config.DOWNLOAD_DIR, final_filename),
                 caption = final_filename
                 )
-        text = 'Dosyan Başarı İle Yüklendi!\nGeçen Toplam Zaman : {} saniye'.format(round(time.time()-start_time))
+        text = 'Dosyan Başarıyla Yüklendi!\nGeçen Toplam Zaman : {} Saniye'.format(round(time.time()-start_time))
         await sent_msg.edit(text)
     except Exception as e:
         print(e)
-        await bot.send_message(chat_id, 'Dosya yüklenirken bir hata oluştu!\nHata Detayları İçin Logu kontrol et!')
+        await bot.send_message(chat_id, 'Dosya Yüklenirken Bir Hata oluştu!\nHata Detayları İçin Logu Kontrol Et!')
 
     path = Config.DOWNLOAD_DIR+'/'
     os.remove(path+og_sub_filename)
@@ -122,7 +122,7 @@ async def hardmux(bot, message, cb=False):
                 video = video,
                 caption = final_filename
                 )
-        text = 'Dosya Başarı İle Yüklendi!\nToplam Geçen zaman : {} saniye'.format(round(time.time()-start_time))
+        text = 'Dosya Başarıyla Yüklendi!\nToplam Geçen zaman : {} Saniye'.format(round(time.time()-start_time))
         await sent_msg.edit(text)
     except Exception as e:
         print(e)
