@@ -17,10 +17,10 @@ async def help(bot, message, cb=False):
         return
     me = await bot.get_me()
     button = [[
-        InlineKeyboardButton(f'🏡 Ev', callback_data='back'),
+        InlineKeyboardButton(f'🏡 Anasayfa', callback_data='back'),
         InlineKeyboardButton(f'👲 Hakkımda', callback_data='about')
         ],[
-        InlineKeyboardButton(f'👥 Kaynak', url='https://t.me/mmagneto'),
+        InlineKeyboardButton(f'👥 Kaynak', url='https://github.com/hplatforms/video-subtitle-merger'),
         InlineKeyboardButton(f'⛔ Kapat', callback_data='close')
         ]]
     reply_markup = InlineKeyboardMarkup(button)
@@ -52,7 +52,7 @@ async def start(bot, message, cb=False):
         InlineKeyboardButton(f'💡 Yardım', callback_data='help'),
         InlineKeyboardButton(f'👲 Hakkımda', callback_data="about")
         ],[
-        InlineKeyboardButton(f'🥰 Kaynak', url='https://t.me/mmagneto'),
+        InlineKeyboardButton(f'🥰 Kaynak', url='https://github.com/hplatforms/video-subtitle-merger'),
         InlineKeyboardButton(f'⛔ Kapat', callback_data="close")
         ]]
     reply_markup = InlineKeyboardMarkup(button)
@@ -79,10 +79,10 @@ async def about(bot, message, cb=False):
         return
     me = await bot.get_me()
     button = [[
-        InlineKeyboardButton(f'🏡 Ev', callback_data='back'),
+        InlineKeyboardButton(f'🏡 Anasayfa', callback_data='back'),
         InlineKeyboardButton(f'❔ Yardım', callback_data='help')
         ],[
-        InlineKeyboardButton(f'👥 Güncelleme', url='https://t.me/quickwaste'),
+        InlineKeyboardButton(f'👥 Güncelleme', url='https://t.me/trbotlistesi'),
         InlineKeyboardButton(f'⛔ Kapat', callback_data="close")
         ]]
     reply_markup = InlineKeyboardMarkup(button)
@@ -131,7 +131,7 @@ async def refreshmeh_cb(bot, message):
             user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), message.from_user.id)
             if user.status == "kicked":
                 await message.message.edit(
-                    text="Sorry Sir, You are Banned. Contact My [Support Group](https://t.me/safothebot).",
+                    text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/trbotlistesidestek).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -142,7 +142,7 @@ async def refreshmeh_cb(bot, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("🤖 Benim Kanalım 🤖", url=invite_link.invite_link)
+                            InlineKeyboardButton("🤖 Kanal 🤖", url=invite_link.invite_link)
                         ],
                         [
                             InlineKeyboardButton("🔄 Yenile 🔄", callback_data="refreshmeh")
@@ -154,7 +154,7 @@ async def refreshmeh_cb(bot, message):
             return
         except Exception:
             await message.message.edit(
-                text="Birşeyler Ters Gitti. İletişime geç [Destek](https://t.me/mmagneto) ile.",
+                text="Birşeyler Ters Gitti. İletişime geç [Destek](https://t.me/trbotlistesidestek).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
