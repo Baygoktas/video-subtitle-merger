@@ -10,11 +10,11 @@ class Script(object):
 
 📡 **Sunucu:** [Heroku](https://heroku.com)
 
-🧑‍💻 **Geliştirici:** [Napçan](https://t.me/mmagneto)
+🧑‍💻 **Geliştirici:** [Kanal](https://t.me/trbotlistesi)
 
-👥 **Destek:** [Napçan](https://t.me/mmagneto)
+👥 **Destek:** [Grup](https://t.me/trbotlistesidestek)
 
-📢 **Kanalım:** [Napçan](https://t.me/quickwaste)
+📢 **Kanalım:** [Kanal](https://t.me/trbotlistesi)
 """
 
   HELP_USER = """
@@ -31,15 +31,15 @@ url|custom_name.mp4
 
 Not :Hardmux'ta yalnızca İngilizce yazı tiplerinin desteklendiğini lütfen unutmayın, diğer komut dosyaları videoda boş bloklar olarak gösterilecektir! 
 
-**Oluşturan 💕 @mmagneto**
+**Oluşturan 💕 @trbotlistesi**
 """
 
   START_TEXT = """
 **Hey** {user_mention}
 
-HOŞGELDİN **{bot_name}**\n
+Hoşgeldin **{bot_name}**\n
 Sana Videolara Altyazı Eklemen Konusunda Yardımcı Olacağım\n
-**Oluşturan 💕 @mmagneto
+**Oluşturan 💕 @trbotlistesi**
 """
 
     
