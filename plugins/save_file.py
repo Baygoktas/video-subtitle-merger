@@ -22,13 +22,13 @@ async def save_doc(bot, message, cb=False):
     me = await bot.get_me()
     chat_id = message.from_user.id
     start_time = time.time()
-    downloading = await bot.send_message(chat_id, 'Downloading your File!')
+    downloading = await bot.send_message(chat_id, 'Dosyanız İndiriliyor!')
     download_location = await bot.download_media(
         message = message,
         file_name = Config.DOWNLOAD_DIR+'/',
         progress = progress_bar,
         progress_args = (
-            'Başlatılıyor',
+            'Başlatılıyor...',
             downloading,
             start_time
         )
@@ -36,7 +36,7 @@ async def save_doc(bot, message, cb=False):
 
     if download_location is None:
         return bot.edit_message_text(
-            text = 'Downloading Failed!',
+            text = 'İndirme Başarısız!',
             chat_id = chat_id,
             message_id = downloading.message_id
         )
@@ -66,9 +66,9 @@ async def save_doc(bot, message, cb=False):
         os.rename(Config.DOWNLOAD_DIR+'/'+tg_filename,Config.DOWNLOAD_DIR+'/'+filename)
         db.put_sub(chat_id, filename)
         if db.check_video(chat_id):
-            text = 'Altyazı Dosyası Başarıyla Yüklendi.\nAltyazı Türünü Seç!\n[ /softmux , /hardmux ]'
+            text = 'Altyazı Dosyası Başarıyla Yüklendi.\nMux Türünü Seç!\n[ /softmux , /hardmux ]'
         else:
-            text = 'Altyazı Yüklendi.\nŞimdi Videoyu yolla!'
+            text = 'Altyazı Yüklendi.\nŞimdi Videoyu Gönder!'
 
         await bot.edit_message_text(
             text = text,
@@ -80,9 +80,9 @@ async def save_doc(bot, message, cb=False):
         os.rename(Config.DOWNLOAD_DIR+'/'+tg_filename,Config.DOWNLOAD_DIR+'/'+filename)
         db.put_video(chat_id, filename, save_filename)
         if db.check_sub(chat_id):
-            text = 'Video Dosyası Başarı ile İndirildi.\nAltyazı Türünü Seç.\n[ /softmux , /hardmux ]'
+            text = 'Video Dosyası Başarıyla İndirildi.\nMux Türünü Seç!\n[ /softmux , /hardmux ]'
         else :
-            text = 'Video Dosyası Başarı İle İndirildi.\nŞimdi Altyazı Dosyasını Yolla!'
+            text = 'Video Dosyası Başarıyla İndirildi.\nŞimdi Altyazı Dosyasını Gönder!'
         await bot.edit_message_text(
             text = text,
             chat_id = chat_id,
@@ -108,13 +108,13 @@ async def save_video(bot, message, cb=False):
 
     chat_id = message.from_user.id
     start_time = time.time()
-    downloading = await bot.send_message(chat_id, 'Downloading your File!')
+    downloading = await bot.send_message(chat_id, 'Dosyanız İndiriliyor!')
     download_location = await bot.download_media(
         message = message,
         file_name = Config.DOWNLOAD_DIR+'/',
         progress = progress_bar,
         progress_args = (
-            'Initializing',
+            'Başlatılıyor',
             downloading,
             start_time
             )
@@ -150,9 +150,9 @@ async def save_video(bot, message, cb=False):
     
     db.put_video(chat_id, filename, save_filename)
     if db.check_sub(chat_id):
-        text = 'Video Dosyası Başarı İle İndirildi.\nAltyazı Türünü Seç.\n[ /softmux , /hardmux ]'
+        text = 'Video Dosyası Başarıyla İndirildi.\nMux Türünü Seç!\n[ /softmux , /hardmux ]'
     else :
-        text = 'Video Dosyası Başarı İle İndirildi.\nŞimdi Altyazı Dosyasını Yolla!'
+        text = 'Video Dosyası Başarıyla İndirildi.\nŞimdi Altyazı Dosyasını Gönder!'
     await bot.edit_message_text(
             text = text,
             chat_id = chat_id,
@@ -199,7 +199,7 @@ async def save_url(bot, message, cb=False):
             save_filename = url.split('/')[-1]
             save_filename = unquote(save_filename)
 
-    sent_msg = await bot.send_message(chat_id, 'Preparing Your Download')
+    sent_msg = await bot.send_message(chat_id, 'İndirme İşleminiz Hazırlanıyor')
     ext = save_filename.split('.')[-1]
     if ext not in ['mp4','mkv'] :
         return await sent_msg.edit(Chat.UNSUPPORTED_FORMAT.format(ext))
@@ -229,7 +229,7 @@ async def save_url(bot, message, cb=False):
                     written = f.write(chunk)
                     #current += 1024*1024
                     current += written
-                    await progress_bar(current, size, 'Downloading Your File!', sent_msg, start)
+                    await progress_bar(current, size, 'Dosyanız İndiriliyor!', sent_msg, start)
 
     logging.info(save_filename)
 
@@ -242,9 +242,9 @@ async def save_url(bot, message, cb=False):
 
     db.put_video(chat_id, filename, save_filename)
     if db.check_sub(chat_id) :
-        text = 'Video Dosyası İndirildi.\nAltyazı Türünü Seç\n[ /softmux , /hardmux ]'
+        text = 'Video Dosyası İndirildi.\nMux Türünü Seç\n[ /softmux , /hardmux ]'
     else :
-        text = 'Video Dosyası İndirildi.\nŞimdi Altyazı Dosyasını Yolla!'
+        text = 'Video Dosyası İndirildi.\nŞimdi Altyazı Dosyasını Gönder!'
     try:
         await sent_msg.edit(text)
     except:
