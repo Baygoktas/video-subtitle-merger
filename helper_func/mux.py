@@ -38,7 +38,7 @@ async def read_stderr(start, msg, process):
                 #Progress bar logic
                 now = time.time()
                 diff = start-now
-                text = 'İLERLEME\n'
+                text = 'İlerleme\n'
                 text += 'Boyut : {}\n'.format(progress['size'])
                 text += 'Süre : {}\n'.format(progress['time'])
                 text += 'Hız : {}\n'.format(progress['speed'])
@@ -86,7 +86,7 @@ async def softmux_vid(vid_filename, sub_filename, msg):
         ])
     
     if process.returncode == 0:
-        await msg.edit('Altyazı Ekleme Başarı İle Tamamlandı!\n\nGeçen Süre : {} saniye'.format(round(start-time.time())))
+        await msg.edit('Altyazı Ekleme Başarıyla Tamamlandı!\n\nGeçen Süre : {} Saniye'.format(round(start-time.time())))
     else:
         await msg.edit('Altyazı Eklenirken Bir Hata Oluştu!')
         return False
@@ -111,7 +111,7 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
             '-c:v','h264',
             '-map','0:v:0',
             '-map','0:a:0?',
-            '-preset','ultrafast',
+            '-preset','veryfast',
             '-y',out_location
             ]
     process = await asyncio.create_subprocess_exec(
@@ -129,7 +129,7 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
         ])
     
     if process.returncode == 0:
-        await msg.edit('Altyazı Ekleme Başarı İle Tamamlandı!\n\nGeçen Süre : {} saniye'.format(round(start-time.time())))
+        await msg.edit('Altyazı Ekleme Başarıyla Tamamlandı!\n\nGeçen Süre : {} Saniye'.format(round(start-time.time())))
     else:
         await msg.edit('Altyazı Eklenirken Bir Hata Oluştu!')
         return False
