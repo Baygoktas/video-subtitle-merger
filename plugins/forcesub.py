@@ -15,7 +15,7 @@ async def handle_force_subscribe(bot, message):
         if user.status == "kicked":
             await bot.send_message(
                 chat_id=message.from_user.id,
-                text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/trbotlistesidestek).",
+                text="Üzgünüm Dostum Banlandın. İletişime geç [İletişim](https://t.me/baygoktas).",
                 parse_mode="markdown",
                 disable_web_page_preview=True,
                 reply_to_message_id=message.message_id,
@@ -42,7 +42,7 @@ async def handle_force_subscribe(bot, message):
     except Exception:
         await bot.send_message(
             chat_id=message.from_user.id,
-            text="Bir Şeyler Ters Gitti. İletişime geçin [Destek](https://t.me/trbotlistesidestek) ile.",
+            text="Bir Şeyler Ters Gitti. İletişime geçin [İletişim](https://t.me/baygoktas) ile.",
             parse_mode="markdown",
             disable_web_page_preview=True,
             reply_to_message_id=message.message_id,
