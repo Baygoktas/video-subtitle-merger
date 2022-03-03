@@ -82,7 +82,7 @@ async def about(bot, message, cb=False):
         InlineKeyboardButton(f'🏡 Anasayfa', callback_data='back'),
         InlineKeyboardButton(f'❔ Yardım', callback_data='help')
         ],[
-        InlineKeyboardButton(f'👥 Güncelleme', url='https://t.me/trbotlistesi'),
+        InlineKeyboardButton(f'👥 Güncelleme', url='https://t.me/baygoktass'),
         InlineKeyboardButton(f'⛔ Kapat', callback_data="close")
         ]]
     reply_markup = InlineKeyboardMarkup(button)
@@ -131,7 +131,7 @@ async def refreshmeh_cb(bot, message):
             user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), message.from_user.id)
             if user.status == "kicked":
                 await message.message.edit(
-                    text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/trbotlistesidestek).",
+                    text="Üzgünüm Dostum Banlandın. İletişime geç [Destek](https://t.me/baygoktas).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -154,7 +154,7 @@ async def refreshmeh_cb(bot, message):
             return
         except Exception:
             await message.message.edit(
-                text="Birşeyler Ters Gitti. İletişime geç [Destek](https://t.me/trbotlistesidestek).",
+                text="Birşeyler Ters Gitti. İletişime geç [İletişim](https://t.me/baygoktas).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
